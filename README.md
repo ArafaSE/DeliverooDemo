@@ -7,7 +7,7 @@ The Project contains 2 E2E Test Scenarios in 1 feature file and 1 Steps Class
 
 ## How to run Test Scenarios
 1. Clone the repo from GitHub
-2. Open terminal and run the above commands
+2. Open terminal from the project path "/DeliverooDemo" and run the above commands
    >mvn clean
    
    >mvn build
@@ -27,7 +27,7 @@ You can check the test outbut from the terminal logs or can check the generated 
 3. Create Maven Project in Jenkins and build a job from Git Project – Follow below steps\
   3.1 Click on New Items –> Enter Project Name (say GitProject) –> Select Freestyle Project –> Click OK\
   3.2 In Source Code Management, Select ‘Git’ option\
-  3.3 Give your Git Repository URL(https://github.com/ArafaSE/DeliverooDemo).\
+  3.3 Give your Git Repository URL(https://github.com/ArafaSE/DeliverooDemo)<br />
   3.4 In Build – click on Add build step and choose Invoke top-level Maven targets and pass ‘clean install‘ as Goals.\
   3.5 Click on Advanced button and pass POM value as ‘pom.xml‘
   
