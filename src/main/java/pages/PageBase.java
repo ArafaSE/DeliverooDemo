@@ -29,11 +29,11 @@ public class PageBase {
 
     public float removeCurrencyFromPrice(String cost) {
         // get the total cost
-        String[] arrOfStr = cost.split("£");
-        cost = "";
+        String[] arrOfstr = cost.split("");
+        cost="";
 
-        for (String a : arrOfStr)
-            cost += a;
+        for (int a = 1; a < arrOfstr.length; a++)
+            cost+=arrOfstr[a];
 
         return Float.parseFloat(cost);
     }

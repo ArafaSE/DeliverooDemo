@@ -35,7 +35,13 @@ public class TestBase extends AbstractTestNGCucumberTests {
 
             ChromeOptions option = new ChromeOptions();
             option.addArguments("--headless");
+            option.addArguments("--disable-gpu");
             option.addArguments("--window-size=1920,1080");
+            option.addArguments("--disable-extensions");
+            option.addArguments("--start-maximized");
+            option.addArguments("--no-sandbox");
+            option.addArguments("--ignore-certificate-errors");
+            option.addArguments("--allow-running-insecure-content");
             driver = new ChromeDriver(option);
         }
 
