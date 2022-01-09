@@ -32,8 +32,8 @@ You can check the test outbut from the terminal logs or can check the generated 
   3.5 Click on Advanced button and pass POM value as ‘pom.xml‘
   
 ## Tech stack
-JAVA language
-Selenium Web-Driver
-Page Object Model (POM) design
-BDD with Cucumber
+JAVA language\
+Selenium Web-Driver\
+Page Object Model (POM) design\
+BDD with Cucumber\
 TestNg
