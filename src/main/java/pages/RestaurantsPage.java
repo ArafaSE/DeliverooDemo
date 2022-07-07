@@ -62,6 +62,7 @@ public class RestaurantsPage extends PageBase {
     }
 
     public void selectFirstRestaurantResult() {
+        waitSec(2);
         clickButton(restaurantSearchResultElements.get(1));
     }
     public void selectFilter(String filterName) {
