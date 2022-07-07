@@ -35,7 +35,7 @@ public class DeliverooSteps extends TestBase {
     @And("The User select the first suggestion address")
     public void theUserSelectTheFirstSuggestionAddress() {
         // Select the first suggestion address in the search results
-        homePage.selectFirstSuggestionAddress();
+        homePage.selectFirstSuggestionAddress(driver);
     }
 
     @And("The user redirected into restaurants page")

@@ -17,44 +17,46 @@ public class MenuPage extends PageBase {
        Web Elements
     */
     @FindBy(tagName = "h1")
-    List<WebElement> pageTitles;
+    List<WebElement> pageTitlesList;
 
-    @FindBy(className = "UIMenuItemCard-4fc58716499db6c7")
+    @FindBy(className = "UIMenuItemCard-c782d9890e061230")
     List<WebElement> menuItemsElementsList;
 
-    @FindBy(className = "ccl-ed9aadeaa18a9f19")
+    @FindBy(className = "ccl-7be8185d0a980278")
     List<WebElement> btnList;
 
-    @FindBy(className = "ccl-115b2fb253c504a9")
-    List<WebElement> basketResultsValues;
+    @FindBy(className = "ccl-a206e125970432e3")
+    List<WebElement> basketResultsList;
 
     @FindBy(xpath = "//button[@aria-label='Increase quantity']")
-    WebElement increaseQntBtn;
+    List<WebElement> increaseQntButtonsList;
 
 
     /*
         Methods: Will be used for all actions needed in the menu page
      */
     public String getRestaurantName() {
-        return pageTitles.get(0).getText();
+        return pageTitlesList.get(0).getText();
     }
 
 
     public void selectFirstItemInTheMenu(WebDriver driver) {
-        waitUntilElementBeVisible(driver, menuItemsElementsList.get(0));
+        waitSec(3);
         clickButton(menuItemsElementsList.get(0));
     }
 
     public void addToBasket(WebDriver driver) {
+        waitSec(3);
         // get the add button (It's located as the last button in the page list buttons)
         btnList.get(btnList.size() - 1).click();
         // wait until Item added and the dialog removed
         waitUntilElementNotVisible(driver, btnList.get(btnList.size() - 1));
     }
 
-    public float cartGetTotalCost() {
+    public float cartGetTotalCost(WebDriver driver) {
+       waitSec(3);
         // get the total cost
-        String totalCost = basketResultsValues.get(basketResultsValues.size() - 1).getText();
+        String totalCost = basketResultsList.get(basketResultsList.size() - 1).getText();
 
         return removeCurrencyFromPrice(totalCost);
     }
@@ -62,22 +64,23 @@ public class MenuPage extends PageBase {
     public void increaseItemQuantityToReachTotalCost(String cost) {
         float minimumCost = Float.parseFloat(cost);
         // get the current total cost
-        float totalCost = cartGetTotalCost();
+        float totalCost = cartGetTotalCost(driver);
 
         while (totalCost < minimumCost) {
             // increase items until reach the minimum free deliver cost
-            cartIncreaseQuantityClick();
-            totalCost = cartGetTotalCost();
+            cartIncreaseQuantityClick(driver);
+            totalCost = cartGetTotalCost(driver);
         }
     }
 
-    public void cartIncreaseQuantityClick() {
-        clickButton(increaseQntBtn);
+    public void cartIncreaseQuantityClick(WebDriver driver) {
+        waitSec(3);
+        clickButton(increaseQntButtonsList.get(0));
     }
 
     public String cartGetDeliveryCost() {
         // get the delivery Cost
-        String deliveryCost = basketResultsValues.get(basketResultsValues.size() - 4).getText();
+        String deliveryCost = basketResultsList.get(basketResultsList.size() - 4).getText();
 
         String[] arrOfStr = deliveryCost.split("£");
         deliveryCost = "";
@@ -89,6 +92,7 @@ public class MenuPage extends PageBase {
     }
 
     public void waitUntilPageLoaded(WebDriver driver) {
-        waitUntilElementBeVisible(driver, pageTitles.get(0));
+        waitSec(3);
+        waitUntilElementBeVisible(driver, pageTitlesList.get(0));
     }
 }

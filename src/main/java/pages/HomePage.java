@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class HomePage extends PageBase {
     public HomePage(WebDriver driver) {
         super(driver);
@@ -18,8 +20,8 @@ public class HomePage extends PageBase {
     @FindBy(id = "location-search")
     WebElement locationInput;
 
-    @FindBy(className = "ccl-f0ec83d50f28de59")
-    WebElement firstSuggestionAddress;
+    @FindBy(className = "ccl-52cba27ceeb9f260")
+    List<WebElement> suggestionAddresses;
 
     @FindBy(id = "onetrust-accept-btn-handler")
     WebElement acceptCookiesBtn;
@@ -47,8 +49,9 @@ public class HomePage extends PageBase {
         setTextElement(locationInput, address);
     }
 
-    public void selectFirstSuggestionAddress() {
-        clickButton(firstSuggestionAddress);
+    public void selectFirstSuggestionAddress(WebDriver driver) {
+       waitSec(3);
+        clickButton(suggestionAddresses.get(0));
     }
 
 }

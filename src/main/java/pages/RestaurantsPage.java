@@ -16,22 +16,22 @@ public class RestaurantsPage extends PageBase {
     /*
         Web Elements
      */
-    @FindBy(className = "ccl-9bcf8db942e088a2")
+    @FindBy(className = "ccl-e2683e5cd3d2680f")
     WebElement offerDialog;
 
-    @FindBy(className = "ccl-cce251427bbe4ec4")
+    @FindBy(className = "ccl-bc70252bc472695a")
     List<WebElement> btnList;
 
     @FindBy(name = "search")
     WebElement searchInput;
 
-    @FindBy(className = "HomeSuggestionRow-96fe664c521a4881")
+    @FindBy(className = "HomeSuggestionRow-a076e6c92509b9fa")
     List<WebElement> restaurantSearchResultElements;
 
-    @FindBy(className = "HomeFeedUICard-a0d1bb5bd14433a9")
+    @FindBy(className = "HomeFeedUICard-d38caa5cc97794b4")
     List<WebElement> restaurantFilterResultElements;
 
-    @FindBy(className = "FilterTag-0b65fd7f2e66a6fb")
+    @FindBy(className = "FilterTag-9986b96ac911a4d0")
     WebElement filterResultsTag;
 
     @FindBy(xpath = "//input[@value='Free Delivery']")
@@ -39,6 +39,7 @@ public class RestaurantsPage extends PageBase {
 
     @FindBy(xpath = "//input[@value='Meal deals']")
     WebElement mealDealsRadioBtnFilter;
+
     // variables
 
     /*

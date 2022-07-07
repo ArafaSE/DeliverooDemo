@@ -33,4 +33,4 @@ Feature: User can add items to his Basket without registration
 
     Examples:
       | URL                      | Address | minimum_free_delivery_cost |
-      | https://deliveroo.co.uk/ | London  | 10                         |
+      | https://deliveroo.co.uk/ | London  | 15                         |
